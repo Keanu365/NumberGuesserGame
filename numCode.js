@@ -18,6 +18,7 @@ var show = document.getElementById("game")
 show.style.display = "none";
 
 function hideSetup(){
+    correctNum = Math.floor((Math.random()*higherBound) + lowerBound)
     hide.style.display = "none"
     show.style.display = "block"
     checkResult.innerText = ""
@@ -54,7 +55,7 @@ function setlower(l_boundValue){
 }
 function sethigher(h_boundValue){
     if(h_boundValue == 'custom'){
-        h_boundValue = prompt("Enter your custom lower bound: ")
+        h_boundValue = prompt("Enter your custom upper bound: ")
         var hBoundArr = Array.from(h_boundValue)
         console.log(hBoundArr)
         for (let i=0; i < hBoundArr.length; i++){
