@@ -1,0 +1,83 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    padding:0;
+    margin:0;
+    font-size:xx-large;
+}
+#setup .main-nav{
+    text-align:center;
+    background-color:green;
+}
+
+#setup .head{
+    font-weight:bold;
+    font-size:2em;
+    color:darkgreen;
+    padding: 20px 0;
+    border-style:solid;
+}
+#setup .ranges{
+    display:flex;
+    flex-direction:column;
+    margin:50px;
+    text-align:center;
+    align-items:center;
+    justify-items: center;
+    justify-content: center;
+}
+#setup .min-range-row, .max-range-row{
+    display:flex;
+    flex-direction: column;
+    padding: 10px 40px;
+    text-align: center;
+}
+#setup .set-button{
+    size:100px;
+    background-color:bisque;
+    padding:10px 20px;
+    border:0px;
+    border-radius:15px;
+}
+#setup .set-button:hover{
+    background-color:#777777;
+    size:120%;
+}
+#setup h3{
+    font-size: 150px;
+}
+#setup a{
+    border: 2px solid green;
+    background-color: greenyellow;
+    color:black;
+    text-decoration: none;
+    padding: 12px;
+    border-radius:5px;
+}
+#setup .confirmrange{
+    font-size: 125px;
+    color: red;
+}
+#game{
+    display:none;
+}
+#game .main-nav{
+    text-align:center;
+    background-color:green;
+}
+#game .head{
+    font-weight:bold;
+    font-size:2em;
+    color:darkgreen;
+    padding: 20px 0;
+    border-style:solid;
+}
+#game .goback{
+    border: 2px solid green;
+    background-color: greenyellow;
+    color:black;
+    text-decoration: none;
+    padding: 2px;
+    margin-bottom: 200px;
+    border-radius:5px;
+    align-items:center;
+}
