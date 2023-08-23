@@ -1,15 +1,15 @@
 var lowerBound = 1
-var higherBound = 20
+var upperBound = 20
 var buttonpress = 0
 const nums = ["1","2","3","4","5","6","7","8","9","0"]
-var correctNum = Math.floor((Math.random()*higherBound) + lowerBound)
+var correctNum = Math.floor((Math.random()*upperBound) + lowerBound)
 
 const historyIds = ["history1","history2","history3","history4","history5","history6","history7","history8","history9","history10"]
 const history = []
 
 var finalRange = document.getElementById("final_confirm")
 var showLowerBound = document.getElementById("lowBoundShow")
-var showHigherBound = document.getElementById("highBoundShow")
+var showUpperBound = document.getElementById("highBoundShow")
 var checkResult = document.getElementById("feedback")
 var guess = document.getElementById("numGuess")
 var hide = document.getElementById("setup")
@@ -17,19 +17,30 @@ var show = document.getElementById("game")
 
 show.style.display = "none";
 
-function hideSetup(){
-    correctNum = Math.floor((Math.random()*higherBound) + lowerBound)
-    hide.style.display = "none"
-    show.style.display = "block"
-    checkResult.innerText = ""
+function clearLog(){
     for (let i = 0; i < 10; i++){
         document.getElementById(historyIds[i]).innerText = ""
     }
     makeHistoArray()
 }
-function showSetup(){
+function hideSetup(){
+    correctNum = Math.floor((Math.random()*upperBound) + lowerBound)
+    hide.style.display = "none"
+    show.style.display = "block"
+    checkResult.innerText = ""
+    clearLog()
+}
+function showSetup(reset){
     show.style.display = "none"
     hide.style.display = "block"
+    if (reset == 'reset'){
+        var confirmation = confirm("Are you sure you want to reset? Clicking 'Yes' will reset the lower bound and upper bound to 0 and 20 respectively, and bring you back to the setup page. Your score will be lost!")
+        if(confirmation == true){
+            lowerBound = 1
+            upperBound = 20
+            final_confirm.innerText = `${lowerBound} <= x <= ${upperBound}`
+        }
+    }
 }
 function setlower(l_boundValue){
     if(l_boundValue == 'custom'){
@@ -43,15 +54,15 @@ function setlower(l_boundValue){
         }
         l_boundValue = lBoundArr.join('')
         l_boundValue = Number(l_boundValue)
-        if(l_boundValue >= higherBound){
+        if(l_boundValue >= upperBound){
             alert("Error: Your lower bound must be lower than your upper bound!")
             l_boundValue = lowerBound
-        }else if(l_boundValue < higherBound){
+        }else if(l_boundValue < upperBound){
             alert("Answer accepted. All non-number characters have been removed and your new lower bound is " + String(l_boundValue))
         }
     }
     lowerBound = l_boundValue
-    final_confirm.innerText = `${lowerBound} <= x <= ${higherBound}`
+    final_confirm.innerText = `${lowerBound} <= x <= ${upperBound}`
 }
 function sethigher(h_boundValue){
     if(h_boundValue == 'custom'){
@@ -67,22 +78,22 @@ function sethigher(h_boundValue){
         h_boundValue = Number(h_boundValue)
         if(h_boundValue <= lowerBound){
             alert("Error: Your upper bound must be higher than your lower bound!")
-            h_boundValue = higherBound
+            h_boundValue = upperBound
         }else if(h_boundValue > lowerBound){
             alert("Answer accepted. All non-number characters have been removed and your new upper bound is " + String(h_boundValue))
         }
     }
-    higherBound = h_boundValue
-    final_confirm.innerText = `${lowerBound} <= x <= ${higherBound}`
+    upperBound = h_boundValue
+    final_confirm.innerText = `${lowerBound} <= x <= ${upperBound}`
 }
 function showBounds(){
     showLowerBound.innerText = "Your lower bound: " + String(lowerBound)
-    showHigherBound.innerText = "Your upper bound: " + String(higherBound)
+    showUpperBound.innerText = "Your upper bound: " + String(upperBound)
 }
 function check(){
     buttonpress += 1
     guess = document.getElementById("numGuess").value
-    if ((guess < lowerBound) || (guess > higherBound)){
+    if ((guess < lowerBound) || (guess > upperBound)){
         checkResult.innerText = "Your number is invalid (not within specified range)!"
         console.log("Test failed")
     }else if( guess == correctNum){
