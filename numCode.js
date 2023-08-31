@@ -14,6 +14,7 @@ var checkResult = document.getElementById("feedback")
 var guess = document.getElementById("numGuess")
 var hide = document.getElementById("setup")
 var show = document.getElementById("game")
+var scorecount = document.getElementById("scorecounter").innerText
 
 show.style.display = "none";
 
@@ -39,6 +40,7 @@ function showSetup(reset){
             lowerBound = 1
             upperBound = 20
             final_confirm.innerText = `${lowerBound} <= x <= ${upperBound}`
+            scorecount = 0
         }
     }
 }
@@ -98,6 +100,7 @@ function check(){
         console.log("Test failed")
     }else if( guess == correctNum){
         checkResult.innerText = "Congratulations, you are correct!"
+        scorecount += 1
     }else if (guess > correctNum){
         checkResult.innerText = "Your guess is too high!"
     }else if (guess < correctNum) {
