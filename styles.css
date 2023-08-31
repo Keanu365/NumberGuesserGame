@@ -4,72 +4,100 @@
     margin:0;
     font-size:xx-large;
 }
-#setup .main-nav{
+body, #setup, #game{
+    display:flex;
+    flex-direction:column;
+    gap:50px;
+}
+.main-nav{
     text-align:center;
-    background-color:green;
+    background-color:palegoldenrod;
 }
 
-#setup .head{
+.head{
     font-weight:bold;
     font-size:2em;
-    color:darkgreen;
+    color:orange;
     padding: 20px 0;
     border-style:solid;
 }
 #setup .ranges{
     display:flex;
-    flex-direction:column;
-    margin:50px;
+    flex-direction:row;
+    gap:50px;
     text-align:center;
     align-items:center;
     justify-items: center;
     justify-content: center;
 }
-#setup .min-range-row, .max-range-row{
+#setup .min-range-row, #setup .max-range-row{
     display:flex;
     flex-direction: column;
     padding: 10px 40px;
     text-align: center;
+    gap:100px;
 }
-#setup .set-button{
-    size:100px;
+#setup .setbutton{
     background-color:bisque;
     padding:10px 20px;
     border:0px;
     border-radius:15px;
+    width:100px;
+    height:80px;
 }
-#setup .set-button:hover{
-    background-color:#777777;
+#setup .customset{
+    width:200px;
+    height:90px;
+}
+#setup .setbutton:hover{
+    background-color:orange;
     size:120%;
+    cursor:pointer;
 }
 #setup h3{
     font-size: 150px;
 }
 #setup a{
-    border: 2px solid green;
-    background-color: greenyellow;
-    color:black;
+    border: 2px solid orange;
+    background-color: bisque;
+    color:orange;
     text-decoration: none;
     padding: 12px;
     border-radius:5px;
 }
 #setup .confirmrange{
     font-size: 125px;
-    color: red;
+    color:chocolate;
+}
+#setup .confirm{
+    display:flex;
+    flex-direction:column;
+    gap:50px;
+    align-items:center;
 }
 #game{
     display:none;
 }
-#game .main-nav{
-    text-align:center;
-    background-color:green;
+#game .score{
+    display:flex;
+    flex-direction:row;
+    margin-bottom:20px;
+    background-color:lightgoldenrodyellow;
+    border-radius:5px;
+    padding:10px;
+    width:150px;
+    border-width:2px;
+    gap:15px;
 }
-#game .head{
-    font-weight:bold;
-    font-size:2em;
-    color:darkgreen;
-    padding: 20px 0;
+#game #scorecounter{
+    width:20px;
+    height:auto;
+    padding:0 5px;
     border-style:solid;
+    border-radius:5px;
+    border-width:1px;
+    background-color:bisque;
+    color:orange;
 }
 #game .buttonrow{
     display:flex;
@@ -78,18 +106,27 @@
     justify-content: center;
     gap:50px;
 }
+#game .gametext{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
 #game .buttonrow a{
-    border: 2px solid green;
-    background-color: greenyellow;
-    color:black;
+    border: 2px solid orange;
+    background-color: bisque;
+    color:orange;
     text-decoration: none;
     padding: 10px;
-    margin-bottom: 200px;
     border-radius:5px;
     align-items:center;
     width:auto;
     height:30px;
 }
-#footer p{
-    font-size:x-small;
+footer{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+footer p{
+    font-size:xx-small;
 }
