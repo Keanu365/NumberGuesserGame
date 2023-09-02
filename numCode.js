@@ -1,6 +1,6 @@
 var lowerBound = 1
 var upperBound = 20
-var buttonpress = 0
+var buttonpressCorrect = false
 const nums = ["1","2","3","4","5","6","7","8","9","0"]
 var correctNum = Math.floor((Math.random()*upperBound) + lowerBound)
 
@@ -14,7 +14,7 @@ var checkResult = document.getElementById("feedback")
 var guess = document.getElementById("numGuess")
 var hide = document.getElementById("setup")
 var show = document.getElementById("game")
-var scorecount = document.getElementById("scorecounter").innerText
+var scorecount = document.getElementById("scorecounter")
 
 show.style.display = "none";
 
@@ -30,6 +30,7 @@ function hideSetup(){
     show.style.display = "block"
     checkResult.innerText = ""
     clearLog()
+    buttonpressCorrect = false
 }
 function showSetup(reset){
     show.style.display = "none"
@@ -40,7 +41,8 @@ function showSetup(reset){
             lowerBound = 1
             upperBound = 20
             final_confirm.innerText = `${lowerBound} <= x <= ${upperBound}`
-            scorecount = 0
+            scorecount.innerText = "0"
+            buttonpressCorrect = false
         }
     }
 }
@@ -93,14 +95,16 @@ function showBounds(){
     showUpperBound.innerText = "Your upper bound: " + String(upperBound)
 }
 function check(){
-    buttonpress += 1
     guess = document.getElementById("numGuess").value
     if ((guess < lowerBound) || (guess > upperBound)){
         checkResult.innerText = "Your number is invalid (not within specified range)!"
         console.log("Test failed")
     }else if( guess == correctNum){
         checkResult.innerText = "Congratulations, you are correct!"
-        scorecount += 1
+        if (buttonpressCorrect != true){
+            buttonpressCorrect = true
+            scorecount.innerText = String(Number(scorecount.innerText) + 1)
+        }
     }else if (guess > correctNum){
         checkResult.innerText = "Your guess is too high!"
     }else if (guess < correctNum) {
