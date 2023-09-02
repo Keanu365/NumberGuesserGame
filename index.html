@@ -80,3 +80,85 @@
 </body>
 <script src="numCode.js"></script>
 </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="heading">
+        <header class="main-header">
+            <nav class="main-nav">
+                <h1 class="head">Number Guesser Game!</h1>
+            </nav>
+        </header>
+    </header>
+    <section id="setup">
+        <div class="ranges">
+            <div class="min_range_row">
+                <h2>Choose one of the lower bounds:</h2>
+                <button type="button" onclick="setlower(1)" class="setbutton">1</button>
+                <button type="button" onclick="setlower(5)" class="setbutton">5</button>
+                <button type="button" onclick="setlower(10)" class="setbutton">10</button>
+                <button type="button" onclick="setlower('custom')" class="setbutton customset">Custom Set</button>
+            </div>
+            <hr>
+            <div class="max_range_row">
+                <h2>Choose one of the upper bounds:</h2>
+                <button type="button" onclick="sethigher(20)" class="setbutton">20</button>
+                <button type="button" onclick="sethigher(50)" class="setbutton">50</button>
+                <button type="button" onclick="sethigher(100)" class="setbutton">100</button>
+                <button type="button" onclick="sethigher('custom')" class="setbutton customset">Custom Set</button>
+            </div>
+            <hr>
+            
+        </div>
+        <div class="confirm">
+            <h3 id="final_confirm" class="confirmrange"> 1 <= x <= 20 </h3>
+        <a href="#" class="setup-confirm" onclick="hideSetup()">Correct, let's play!</a>
+        </div>
+    </section>
+    <section id="game">
+        <div class="score">
+            <h2> Score:</h2>
+            <p id="scorecounter">0</p>
+        </div>
+        <div class="gametext">
+            <h2 id="lowBoundShow" onclick="showBounds()">Your lower bound:</h2>
+            <h2 id="highBoundShow" onclick="showBounds()">Your upper bound:</h2>
+            <h2>(Click on the two lines above to show bounds)</h2>
+            <form>
+                <label for="numGuess">The computer has chosen a random number from your selected lower bound to your selected upper bound. Guess the number: </label>
+                <input type="number" id="numGuess" name="numGuess">
+                <button type="button" onclick="check()">Check My Guess</button>
+            </form>
+            <h2 id="feedback"></h2>
+        </div>
+        <h3> Your guess history: </h3>
+        <ul>
+            <li id="history1"></li>
+            <li id="history2"></li>
+            <li id="history3"></li>
+            <li id="history4"></li>
+            <li id="history5"></li>
+            <li id="history6"></li>
+            <li id="history7"></li>
+            <li id="history8"></li>
+            <li id="history9"></li>
+            <li id="history10"></li>
+        </ul>
+        <div class="buttonrow">
+            <a href="#" onclick="showSetup()">Go back to setup page</a>
+            <a href="#" onclick="hideSetup()">Play Again</a>
+            <a href="#" onclick="showSetup('reset')">Reset All</a>
+            <a href="#" onclick="clearLog()">Clear Guess History</a>
+        </div>
+    </section>
+    <footer>
+        <p> © 2023, Keanu Min. All rights reserved. </p>
+    </footer>
+</body>
+<script src="numCode.js"></script>
+</html>
